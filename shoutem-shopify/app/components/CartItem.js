@@ -17,6 +17,8 @@ import {
 
 import { ext } from '../const';
 
+import cf from 'currency-formatter';
+
 /**
  * Renders a single cart item, with selected variant and quantity for a product
  */
