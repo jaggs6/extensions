@@ -17,6 +17,8 @@ import { ext } from '../const';
 
 import ListItem from './ListItem';
 
+var cf from 'currency-formatter';
+
 const GridItem = ({ item, onAddToCart, onPress, shop }) => {
   const { images, minimum_price, minimum_compare_at_price, title } = item;
   const { currency = '' } = shop;
@@ -35,10 +37,10 @@ const GridItem = ({ item, onAddToCart, onPress, shop }) => {
             <Subtitle
               styleName="md-gutter-right"
             >
-              {`${minimum_price} ${currency}`}
+              {`${cf.format(minimum_price, { code: currency })}`}
             </Subtitle>
             <Caption styleName="line-through">
-              {minimum_compare_at_price ? `${minimum_compare_at_price} ${currency}` : ''}
+              {minimum_compare_at_price ? `${cf.format(minimum_compare_at_price, { code: currency })}` : ''}
             </Caption>
             <Button
               onPress={onAddToCart}
